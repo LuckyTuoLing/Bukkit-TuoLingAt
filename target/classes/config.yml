@@ -1,0 +1,25 @@
+#消息设置
+Message:
+  #发送者的消息设置
+  Sender:
+    AtOther: "&f[&6系统&f] 你艾特了: &e%target%"
+    InCooldown: "&f[&6系统&f] 艾特的太快了!先等到 &e%cooldown% 秒后再艾特吧"
+    AtWrong: "&f[&e系统&f] &c玩家不存在或者不在线."
+    CannotAtSelf: "&f[&e系统&f] &c你不能艾特自己."
+    #给自己播放的音效，格式: 音效名,音量,音调 (音量越大越响, 音调越高越尖)
+    #音效名写法: 1.9+ 填字符串名如 ENTITY_CAT_AMBIENT, 1.8 只能填枚举名如 CAT_AMBIENT
+    Sound: "ENTITY_CAT_AMBIENT,1,1"
+  #接收者的消息设置
+  target:
+    #给对方弹出的标题，格式: 标题,副标题,淡入,停留,淡出 (时长单位 tick, 20 tick = 1 秒)
+    #1.8 ~ 1.10 不支持后三个参数, 直接写 Title: "&6%sender%,&b好像在艾特你"
+    Title: "&6%sender%,&b好像在艾特你,10,30,10"
+    ChatBot: "&f[&e系统&f] 玩家 &b%sender% &f在艾特你,快去回复他吧."
+    Sound: "ENTITY_CAT_AMBIENT,1,1"
+Setting:
+  #艾特的冷却(聊天框艾特和指令艾特共用一套冷却系统)
+  CommandCooldown: 10
+  #OP 是否无视冷却
+  OpNoCooldown: true
+  #是否启动聊天框艾特别人(更改此选项后执行 /at reload 即刻生效)
+  EnableChatAt: true
