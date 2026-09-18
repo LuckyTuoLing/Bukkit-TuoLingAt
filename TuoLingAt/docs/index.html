@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TuoLingAt · 跨版本艾特插件</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <!-- 左侧导航 -->
+    <nav class="nav-rail">
+        <div class="nav-logo">@</div>
+        <a class="nav-icon active" href="index.html" title="首页">🏠</a>
+        <a class="nav-icon" href="wiki.html" title="用户文档">📖</a>
+        <a class="nav-icon" href="dev.html" title="开发者文档">🧩</a>
+        <div class="nav-sep"></div>
+        <a class="nav-icon" href="wiki.html#faq" title="常见问题">🔍</a>
+        <div class="nav-foot">TuoLingAt</div>
+    </nav>
+
+    <!-- 目录 -->
+    <aside class="toc-panel">
+        <div class="toc-header">TuoLingAt</div>
+        <div class="toc-group">开始</div>
+        <a class="toc-item" href="#overview">概览</a>
+        <a class="toc-item" href="#stats">项目总览</a>
+        <a class="toc-item" href="#why">为什么选它</a>
+        <a class="toc-item" href="#features">特性</a>
+        <a class="toc-item" href="#versions">版本支持</a>
+        <div class="toc-group">使用</div>
+        <a class="toc-item" href="#quickstart">快速开始</a>
+        <a class="toc-item" href="#commands">命令与权限</a>
+        <div class="toc-group">深入</div>
+        <a class="toc-item" href="#docs">文档导航</a>
+    </aside>
+
+    <!-- 正文 -->
+    <main class="doc-panel">
+        <div class="doc-inner">
+
+            <section class="hero">
+                <div class="hero-seal">艾</div>
+                <div class="hero-title">TuoLingAt</div>
+                <p class="hero-slogan">
+                    为 Minecraft 服务器打造的跨版本艾特插件。指令与聊天框双通道、零 NMS、
+                    音效与标题自动适配 1.8 ~ 26.x，装进去就能跑。
+                </p>
+                <div class="hero-meta">
+                    <span class="badge gold">1.0</span>
+                    <span class="badge ok">1.8 ~ 26.x</span>
+                    <span class="badge blue">零 NMS</span>
+                    <span class="badge ok">可进网易 Java 服</span>
+                    <span class="badge">软依赖 PlaceholderAPI</span>
+                    <span class="badge purple">Java 8+</span>
+                </div>
+                <div class="hero-actions">
+                    <a class="btn-primary" href="wiki.html">阅读用户文档</a>
+                    <a class="btn-ghost" href="dev.html">开发者文档</a>
+                </div>
+            </section>
+
+            <!-- ==================== 概览 ==================== -->
+            <h2 id="overview">概览</h2>
+            <p>
+                TuoLingAt 解决的是服务器里最常见的沟通需求：<strong>让一条消息精准抵达某个人，并且让对方难以忽略</strong>。
+                发起者敲 <code>/at Steve</code>，或在聊天框打 <code>@Steve</code>，Steve 会同时收到聊天提示、
+                屏幕标题和音效反馈。
+            </p>
+            <p>
+                它同时照顾三方：<strong>发起者</strong>得到"已送达"的反馈，<strong>被艾特的人</strong>得到强提醒，
+                <strong>服主</strong>得到权限、冷却、开关等一整套可控项。所有提示文案、音效、标题都在
+                <code>config.yml</code> 里可改，不用碰代码。
+            </p>
+
+            <!-- ==================== 项目总览 ==================== -->
+            <h2 id="stats">项目总览</h2>
+            <p>
+                这个项目其实是 <strong>HanAtPlayerPlus 的 4.0 版本</strong>，从最早的前身算起已经迭代了 2 年。
+            </p>
+            <p>
+                1.0 版本的代码规模与来源构成。框架设计与核心逻辑全部由人工完成，
+                AI 只参与文档、注释与部分样板代码。
+            </p>
+            <div class="stat-grid">
+                <div class="stat">
+                    <div class="stat-num">1476</div>
+                    <div class="stat-label">Java 代码总行数<br>（32 个类，非空行 1248）</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">0%</div>
+                    <div class="stat-label">框架设计 AI 率</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">0%</div>
+                    <div class="stat-label">核心逻辑 AI 率</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">30%</div>
+                    <div class="stat-label">总体 AI 率</div>
+                </div>
+            </div>
+
+            <!-- ==================== 为什么选它 ==================== -->
+            <h2 id="why">为什么选它</h2>
+            <div class="hl-grid">
+                <div class="hl">
+                    <div class="hl-icon">🌱</div>
+                    <div class="hl-title">萌新一分钟上手</div>
+                    <div class="hl-text">
+                        配置只有 <code>Message</code> 和 <code>Setting</code> 两块，每个选项的注释就写在旁边，
+                        照着改就行；丢进 <code>plugins/</code> 重启即生效，没有硬依赖，也不用碰代码。
+                    </div>
+                </div>
+                <div class="hl">
+                    <div class="hl-icon">✂️</div>
+                    <div class="hl-title">消息不想要？删掉那行就行</div>
+                    <div class="hl-text">
+                        某个提示不想显示了，<strong>不用改成空字符串、也不用找开关</strong>，
+                        直接把配置里那一行删掉即可 —— 插件取不到配置就自动跳过，不报错、不刷屏；
+                        哪天想恢复，再把那一行加回来就好。
+                    </div>
+                </div>
+                <div class="hl">
+                    <div class="hl-icon">🧱</div>
+                    <div class="hl-title">代码质量经得起看</div>
+                    <div class="hl-text">
+                        消息解析、消息发送、版本兼容、缓存、事件监听、命令各自独立成层，改动互不牵连；
+                        框架设计与核心逻辑 <strong>0% AI 参与</strong>，跨版本靠能力探测而非版本号比较。
+                    </div>
+                </div>
+                <div class="hl">
+                    <div class="hl-icon">⚡</div>
+                    <div class="hl-title">性能几乎零开销</div>
+                    <div class="hl-text">
+                        兼容实现只在启动时探测一次并缓存，运行时<strong>零反射</strong>；
+                        没有常驻定时任务、没有轮询；聊天监听按需注册，关掉即注销，不留空转。
+                    </div>
+                </div>
+                <div class="hl">
+                    <div class="hl-icon">🎮</div>
+                    <div class="hl-title">可进网易 Java 服</div>
+                    <div class="hl-text">
+                        这不是单独做的适配，而是<strong>代码质量 + 性能</strong>的自然结果：
+                        零 NMS、不引用任何 <code>net.minecraft</code> / <code>craftbukkit</code> 类，
+                        依赖全部 <code>provided</code> 不打进产物，不抢类、不额外占用资源，服内直接加载即可。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== 特性 ==================== -->
+            <h2 id="features">特性</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🧬</div>
+                    <div class="card-title">跨版本自适应</div>
+                    <div class="card-text">
+                        标题按 5 参 / 2 参 <code>sendTitle</code> 自动选择实现，音效按版本自动转换名字格式，
+                        全项目零 NMS，1.8 ~ 26.x 一套代码跑通。
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <div class="card-title">聊天框直接艾特</div>
+                    <div class="card-text">
+                        聊天里打 <code>@玩家名</code> 即可触发，名字自动变绿；支持 <code>@ Steve</code> 这种带空格的写法，
+                        玩家名大小写不敏感。
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">批量与随机关键字</div>
+                    <div class="card-text">
+                        <code>@all</code>（<code>@全体玩家</code>）群发，<code>@random</code>（<code>@随机玩家</code>）随机点名 ——
+                        而且随机点名会在消息里直接变成真实玩家名。
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔐</div>
+                    <div class="card-title">权限节点控制</div>
+                    <div class="card-text">
+                        批量、随机、重载各有独立权限节点；聊天框关键字与指令共用同一套权限，
+                        无法从聊天框绕过限制。
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⏱️</div>
+                    <div class="card-title">分级冷却</div>
+                    <div class="card-text">
+                        冷却只作用于指令艾特与聊天框普通艾特；<code>@all</code>/<code>@random</code> 不占冷却。
+                        OP 可配置为无视冷却。
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧩</div>
+                    <div class="card-title">对外 API</div>
+                    <div class="card-text">
+                        提供 <code>AtEvent</code> 事件与 PlaceholderAPI 占位符，
+                        其他插件可监听艾特行为或读取冷却状态。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== 版本支持 ==================== -->
+            <h2 id="versions">版本支持</h2>
+            <p>
+                从 <strong>1.8</strong> 到 <strong>26.x</strong>（含 2026 年启用的新版本号体系）用同一份代码跑通，
+                不用按版本换 jar，也不用额外装任何兼容插件。
+            </p>
+            <p>
+                适配方式不是在代码里判断版本号，而是<strong>探测服务端到底提供了哪个方法</strong>：
+                标题看 <code>sendTitle</code> 是五参还是两参，音效看有没有字符串版 <code>playSound</code>、
+                以及 <code>Sound#getKey()</code> 是否存在。因此无论用哪个分支的服务端，都能正确落档。
+            </p>
+
+            <h3>适配分档</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>版本区间</th>
+                        <th>标题</th>
+                        <th>音效名格式</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1.8 ~ 1.8.9</td>
+                        <td>两参 <code>sendTitle</code>，淡入/停留/淡出被忽略</td>
+                        <td><code>Sound</code> 枚举值，如 <code>CAT_AMBIENT</code></td>
+                    </tr>
+                    <tr>
+                        <td>1.9 ~ 1.10.2</td>
+                        <td>两参 <code>sendTitle</code>，动画时长同样忽略</td>
+                        <td>枚举名，如 <code>ENTITY_CAT_AMBIENT</code></td>
+                    </tr>
+                    <tr>
+                        <td>1.11 ~ 1.12.2</td>
+                        <td>五参 <code>sendTitle</code>，支持自定义动画时长</td>
+                        <td>枚举名，如 <code>ENTITY_CAT_AMBIENT</code></td>
+                    </tr>
+                    <tr>
+                        <td>1.13 ~ 26.3</td>
+                        <td>五参 <code>sendTitle</code>，支持自定义动画时长</td>
+                        <td>资源路径，如 <code>entity.cat.ambient</code></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>逐版本覆盖清单</h3>
+            <p>下面是覆盖到的 Minecraft Java 版<strong>正式版</strong>（Release）；快照 / 预发布版未逐个列出，同大版本内一般也能跑。</p>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>大版本</th><th>正式版</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>1.8</td><td>1.8 · 1.8.1 · 1.8.2 · 1.8.3 · 1.8.4 · 1.8.5 · 1.8.6 · 1.8.7 · 1.8.8 · 1.8.9</td></tr>
+                    <tr><td>1.9</td><td>1.9 · 1.9.1 · 1.9.2 · 1.9.3 · 1.9.4</td></tr>
+                    <tr><td>1.10</td><td>1.10 · 1.10.1 · 1.10.2</td></tr>
+                    <tr><td>1.11</td><td>1.11 · 1.11.1 · 1.11.2</td></tr>
+                    <tr><td>1.12</td><td>1.12 · 1.12.1 · 1.12.2</td></tr>
+                    <tr><td>1.13</td><td>1.13 · 1.13.1 · 1.13.2</td></tr>
+                    <tr><td>1.14</td><td>1.14 · 1.14.1 · 1.14.2 · 1.14.3 · 1.14.4</td></tr>
+                    <tr><td>1.15</td><td>1.15 · 1.15.1 · 1.15.2</td></tr>
+                    <tr><td>1.16</td><td>1.16 · 1.16.1 · 1.16.2 · 1.16.3 · 1.16.4 · 1.16.5</td></tr>
+                    <tr><td>1.17</td><td>1.17 · 1.17.1</td></tr>
+                    <tr><td>1.18</td><td>1.18 · 1.18.1 · 1.18.2</td></tr>
+                    <tr><td>1.19</td><td>1.19 · 1.19.1 · 1.19.2 · 1.19.3 · 1.19.4</td></tr>
+                    <tr><td>1.20</td><td>1.20 · 1.20.1 · 1.20.2 · 1.20.3 · 1.20.4 · 1.20.5 · 1.20.6</td></tr>
+                    <tr><td>1.21</td><td>1.21 · 1.21.1 · 1.21.2 · 1.21.3 · 1.21.4 · 1.21.5 · 1.21.6 · 1.21.7 · 1.21.8 · 1.21.9 · 1.21.10 · 1.21.11</td></tr>
+                    <tr><td>26.1</td><td>26.1 · 26.1.1 · 26.1.2</td></tr>
+                    <tr><td>26.2</td><td>26.2</td></tr>
+                    <tr><td>26.3</td><td>26.3（当前最新正式版）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="note tip">
+                <div class="note-h">1.21.11 之后换了版本号规则</div>
+                Mojang 从 2026 年起把版本号改成“年份.序号”，<code>26.1</code> 比 <code>1.21.11</code> 新，
+                按字符串比较会得出错误结论。插件全程按能力探测适配，新旧两套命名规则都能自动落档。
+            </div>
+            <div class="note">
+                <div class="note-h">哪些服务端可以直接用</div>
+                Spigot、Paper 及其分支、混合端都能直接加载；网易 Java 服同样可用。
+                插件不引用任何 <code>net.minecraft</code> / <code>craftbukkit</code> 类，依赖全部 <code>provided</code> 不打进产物，不会与服内其它插件抢类。
+            </div>
+            <div class="note warn">
+                <div class="note-h">音效名两种格式都能写</div>
+                配置里写 <code>ENTITY_CAT_AMBIENT</code> 或 <code>entity.cat.ambient</code> 都行，插件会按当前服务端版本自动转换。
+                万一该音效在当前版本确实不存在，也只会在控制台打一条警告，聊天提示与标题照常发送。
+            </div>
+
+            <!-- ==================== 快速开始 ==================== -->
+            <h2 id="quickstart">快速开始</h2>
+            <div class="steps">
+                <div class="step">
+                    <b>放入插件</b>
+                    <span>把构建产物 <code>TuoLingAt-1.0.jar</code> 丢进服务端的 <code>plugins/</code> 目录。</span>
+                </div>
+                <div class="step">
+                    <b>完全重启服务器</b>
+                    <span>首次加载会生成 <code>config.yml</code>，控制台会打印插件横幅。换 jar 后请整服重启，热重载可能仍加载旧类。</span>
+                </div>
+                <div class="step">
+                    <b>按需改配置</b>
+                    <span>改完执行 <code>/at reload</code> 即可生效（聊天框艾特开关也支持热切换）。</span>
+                </div>
+            </div>
+
+            <!-- ==================== 命令 ==================== -->
+            <h2 id="commands">命令与权限</h2>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>命令</th>
+                        <th>说明</th>
+                        <th>权限节点</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>/at &lt;玩家名&gt;</code></td>
+                        <td>艾特指定在线玩家</td>
+                        <td><span class="badge ok">无需权限</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>/at all</code></td>
+                        <td>艾特所有在线玩家</td>
+                        <td><code>tuolingat.atall</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>/at random</code></td>
+                        <td>随机艾特一位在线玩家</td>
+                        <td><code>tuolingat.atrandom</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>/at reload</code></td>
+                        <td>重载配置文件</td>
+                        <td><code>tuolingat.reload</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>/at</code> · <code>/at help</code></td>
+                        <td>查看帮助</td>
+                        <td><span class="badge ok">无需权限</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                控制台同样可以用 <code>/at &lt;玩家名&gt;</code>，此时提示里的 <code>%sender%</code> 会显示为
+                <code>Console</code>；命令别名 <code>/hanat</code> 与 <code>/at</code> 完全等价。
+            </p>
+
+            <!-- ==================== 文档导航 ==================== -->
+            <h2 id="docs">文档导航</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <div class="card-title">用户文档</div>
+                    <div class="card-text">
+                        安装部署、<code>config.yml</code> 逐项说明、命令权限、聊天框行为、
+                        跨版本细节与常见问题。
+                    </div>
+                    <p><a href="wiki.html">进入 Wiki →</a></p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧩</div>
+                    <div class="card-title">开发者文档</div>
+                    <div class="card-text">
+                        项目结构、模块职责、<code>AtEvent</code> 事件 API、PlaceholderAPI 占位符、
+                        扩展方式与构建流程。
+                    </div>
+                    <p><a href="dev.html">进入开发者文档 →</a></p>
+                </div>
+            </div>
+
+            <div class="pager">
+                <a class="next" href="wiki.html">
+                    <span class="pager-h">下一篇</span>
+                    <span class="pager-t">用户文档 →</span>
+                </a>
+            </div>
+
+            <div class="doc-footer">
+                <span>TuoLingAt · 跨版本艾特插件</span>
+                <span>Minecraft 1.8 ~ 26.x · Spigot / Paper</span>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script src="js/docs.js"></script>
+</body>
+</html>

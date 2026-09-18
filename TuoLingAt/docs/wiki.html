@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用户文档 · TuoLingAt</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <nav class="nav-rail">
+        <div class="nav-logo">@</div>
+        <a class="nav-icon" href="index.html" title="首页">🏠</a>
+        <a class="nav-icon active" href="wiki.html" title="用户文档">📖</a>
+        <a class="nav-icon" href="dev.html" title="开发者文档">🧩</a>
+        <div class="nav-sep"></div>
+        <a class="nav-icon" href="#faq" title="常见问题">🔍</a>
+        <div class="nav-foot">Wiki</div>
+    </nav>
+
+    <aside class="toc-panel">
+        <div class="toc-header">用户文档</div>
+        <div class="toc-group">开始</div>
+        <a class="toc-item" href="#install">安装与前置</a>
+        <a class="toc-item" href="#config">配置文件</a>
+        <a class="toc-item" href="#placeholders">消息占位符</a>
+        <div class="toc-group">使用</div>
+        <a class="toc-item" href="#commands">命令与权限</a>
+        <a class="toc-item" href="#chat">聊天框艾特</a>
+        <a class="toc-item" href="#format">音效与标题格式</a>
+        <div class="toc-group">进阶</div>
+        <a class="toc-item" href="#versions">跨版本说明</a>
+        <a class="toc-item" href="#papi">PlaceholderAPI</a>
+        <a class="toc-item" href="#faq">常见问题</a>
+    </aside>
+
+    <main class="doc-panel">
+        <div class="doc-inner">
+
+            <div class="doc-title">用户文档</div>
+            <p class="doc-sub">安装、配置、命令与行为说明。读完这一页，你就能把 TuoLingAt 调到想要的样子。</p>
+            <div class="doc-meta">
+                <span class="badge gold">1.0</span>
+                <span class="badge ok">1.8 ~ 26.x</span>
+                <span class="badge blue">Spigot / Paper</span>
+            </div>
+
+            <!-- ==================== 安装 ==================== -->
+            <h2 id="install">安装与前置</h2>
+
+            <h3>环境要求</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>项目</th><th>要求</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>服务端</td><td>Spigot / Paper 及其分支，1.8 ~ 26.x</td></tr>
+                    <tr><td>Java</td><td>Java 8 及以上（与服务端版本要求一致即可）</td></tr>
+                    <tr><td>硬依赖</td><td>无</td></tr>
+                    <tr><td>软依赖</td><td>PlaceholderAPI（可选，缺失不影响任何功能）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>支持版本列表</h3>
+            <p>
+                下面列出的是插件覆盖的 Minecraft Java 版<strong>正式版</strong>（Release）。
+                快照 / 预发布版没有逐个列出，同大版本内一般也能正常运行。
+            </p>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>大版本</th><th>正式版</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>1.8</td><td>1.8 · 1.8.1 · 1.8.2 · 1.8.3 · 1.8.4 · 1.8.5 · 1.8.6 · 1.8.7 · 1.8.8 · 1.8.9</td></tr>
+                    <tr><td>1.9</td><td>1.9 · 1.9.1 · 1.9.2 · 1.9.3 · 1.9.4</td></tr>
+                    <tr><td>1.10</td><td>1.10 · 1.10.1 · 1.10.2</td></tr>
+                    <tr><td>1.11</td><td>1.11 · 1.11.1 · 1.11.2</td></tr>
+                    <tr><td>1.12</td><td>1.12 · 1.12.1 · 1.12.2</td></tr>
+                    <tr><td>1.13</td><td>1.13 · 1.13.1 · 1.13.2</td></tr>
+                    <tr><td>1.14</td><td>1.14 · 1.14.1 · 1.14.2 · 1.14.3 · 1.14.4</td></tr>
+                    <tr><td>1.15</td><td>1.15 · 1.15.1 · 1.15.2</td></tr>
+                    <tr><td>1.16</td><td>1.16 · 1.16.1 · 1.16.2 · 1.16.3 · 1.16.4 · 1.16.5</td></tr>
+                    <tr><td>1.17</td><td>1.17 · 1.17.1</td></tr>
+                    <tr><td>1.18</td><td>1.18 · 1.18.1 · 1.18.2</td></tr>
+                    <tr><td>1.19</td><td>1.19 · 1.19.1 · 1.19.2 · 1.19.3 · 1.19.4</td></tr>
+                    <tr><td>1.20</td><td>1.20 · 1.20.1 · 1.20.2 · 1.20.3 · 1.20.4 · 1.20.5 · 1.20.6</td></tr>
+                    <tr><td>1.21</td><td>1.21 · 1.21.1 · 1.21.2 · 1.21.3 · 1.21.4 · 1.21.5 · 1.21.6 · 1.21.7 · 1.21.8 · 1.21.9 · 1.21.10 · 1.21.11</td></tr>
+                    <tr><td>26.1</td><td>26.1 · 26.1.1 · 26.1.2</td></tr>
+                    <tr><td>26.2</td><td>26.2</td></tr>
+                    <tr><td>26.3</td><td>26.3（当前最新正式版）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note tip">
+                <div class="note-h">1.21.11 之后换了版本号规则</div>
+                Mojang 从 2026 年起把版本号改成“年份.序号”，所以 <code>26.1</code> 比 <code>1.21.11</code> 新。
+                插件按<strong>能力探测</strong>（方法是否存在）适配，不按版本号字符串比较，因此两种命名规则都能正确识别。
+            </div>
+
+            <h3>安装步骤</h3>
+            <div class="steps">
+                <div class="step">
+                    <b>放入插件</b>
+                    <span>将 <code>TuoLingAt-1.0.jar</code> 复制到服务端 <code>plugins/</code> 目录。</span>
+                </div>
+                <div class="step">
+                    <b>完全重启服务器</b>
+                    <span>首次启动会生成 <code>plugins/TuoLingAt/config.yml</code>，并在控制台打印插件横幅（含支持版本与当前服务端版本）。</span>
+                </div>
+                <div class="step">
+                    <b>验证</b>
+                    <span>游戏内执行 <code>/at</code> 查看帮助；控制台会输出插件已启动的提示。</span>
+                </div>
+            </div>
+
+            <div class="note warn">
+                <div class="note-h">替换 jar 后请整服重启</div>
+                用 <code>/reload</code> 或插件管理工具热重载时，已经加载过的类可能不会被替换，导致仍在跑旧代码。
+                排查问题时，先看一眼出错日志里的行号是否和当前源码对得上。
+            </div>
+
+            <h3>控制台提示</h3>
+            <p>插件启用与禁用时会在控制台打印一段横幅，便于确认版本：</p>
+            <div class="code-block">
+                <span class="code-lang">console</span>
+                <pre><code>§f§l§m—=—=—=—=-=-=-=-§e[§cTuoLingAt §f1.0§e]§f§l§m—=—=—=—=-=-=-=-
+§e◈§b插件启动完成
+§e◈§b支持版本: §f1.8 ~ 26.x
+§e◈§b当前服务端版本: §f1.12.2
+§f§l§m—=—=—=—=-=-=-=-§e[§cTuoLingAt §f1.0§e]§f§l§m—=—=—=—=-=-=-=-</code></pre>
+            </div>
+
+            <!-- ==================== 配置文件 ==================== -->
+            <h2 id="config">配置文件</h2>
+            <p>路径：<span class="path">plugins/TuoLingAt/config.yml</span>。改完执行 <code>/at reload</code> 生效。</p>
+
+            <div class="code-block">
+                <span class="code-lang">yaml</span>
+                <pre><code>Message:
+  Sender:                              # 发起者自己看到的提示
+    AtOther: "&f[&6系统&f] 你艾特了: &e%target%"
+    InCooldown: "&f[&6系统&f] 艾特的太快了!先等到 &e%cooldown% 秒后再艾特吧"
+    AtWrong: "&f[&e系统&f] &c玩家不存在或者不在线."
+    CannotAtSelf: "&f[&e系统&f] &c你不能艾特自己."
+    Sound: "ENTITY_CAT_AMBIENT,1,1"
+  target:                              # 被艾特者收到的提示
+    Title: "&6%sender%,&b好像在艾特你,10,30,10"
+    ChatBot: "&f[&e系统&f] 玩家 &b%sender% &f在艾特你,快去回复他吧."
+    Sound: "ENTITY_CAT_AMBIENT,1,1"
+Setting:
+  CommandCooldown: 10                  # 冷却秒数（指令艾特与聊天框普通艾特共用）
+  OpNoCooldown: true                   # OP 是否无视冷却
+  EnableChatAt: true                   # 是否启用聊天框艾特</code></pre>
+            </div>
+
+            <h3>Message.Sender · 发起者提示</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>键</th><th>作用</th><th>可用占位符</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td><code>AtOther</code></td><td>艾特成功时给自己的反馈（艾特全员时不发，避免刷屏）</td><td><code>%target%</code></td></tr>
+                    <tr><td><code>InCooldown</code></td><td>处于冷却中时的提示</td><td><code>%cooldown%</code></td></tr>
+                    <tr><td><code>AtWrong</code></td><td>目标不存在或不在线时的提示</td><td>—</td></tr>
+                    <tr><td><code>CannotAtSelf</code></td><td>尝试艾特自己时的提示</td><td>—</td></tr>
+                    <tr><td><code>Sound</code></td><td>给自己播放的音效</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Message.target · 被艾特者提示</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>键</th><th>作用</th><th>可用占位符</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td><code>Title</code></td><td>弹给对方的屏幕标题</td><td><code>%sender%</code></td></tr>
+                    <tr><td><code>ChatBot</code></td><td>发给对方的聊天提示</td><td><code>%sender%</code></td></tr>
+                    <tr><td><code>Sound</code></td><td>给对方播放的音效</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Setting · 行为开关</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>键</th><th>默认</th><th>说明</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>CommandCooldown</code></td>
+                        <td><code>10</code></td>
+                        <td>冷却秒数，<code>0</code> 或负数表示不限制。指令艾特与聊天框普通艾特共用同一条冷却。</td>
+                    </tr>
+                    <tr>
+                        <td><code>OpNoCooldown</code></td>
+                        <td><code>true</code></td>
+                        <td>开启后 OP 无视冷却（也不会占用冷却）。设为 <code>false</code> 则 OP 同样受限。</td>
+                    </tr>
+                    <tr>
+                        <td><code>EnableChatAt</code></td>
+                        <td><code>true</code></td>
+                        <td>是否启用聊天框艾特。关闭时插件<strong>不会注册</strong>聊天监听，<code>/at reload</code> 后可即时切换。</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="note">
+                <div class="note-h">颜色写法</div>
+                文案里用 <code>&amp;</code> 加颜色代码，例如 <code>&amp;f</code> 白、<code>&amp;e</code> 黄、<code>&amp;c</code> 红、
+                <code>&amp;6</code> 金、<code>&amp;a</code> 绿、<code>&amp;b</code> 青、<code>&amp;l</code> 加粗。
+                插件会自动转换成游戏内颜色。
+            </div>
+
+            <!-- ==================== 占位符 ==================== -->
+            <h2 id="placeholders">消息占位符</h2>
+            <p>配置文案里可以写下面这些占位符，发送时会自动替换：</p>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>占位符</th><th>含义</th><th>出现在</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>%target%</code></td>
+                        <td>被艾特的玩家名</td>
+                        <td><code>Message.Sender.AtOther</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>%sender%</code></td>
+                        <td>发起艾特的人；由控制台发起时为 <code>Console</code></td>
+                        <td><code>Message.target.Title</code> / <code>ChatBot</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>%cooldown%</code></td>
+                        <td>冷却剩余秒数</td>
+                        <td><code>Message.Sender.InCooldown</code></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ==================== 命令 ==================== -->
+            <h2 id="commands">命令与权限</h2>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>命令</th><th>说明</th><th>权限节点</th><th>冷却</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>/at &lt;玩家名&gt;</code></td>
+                        <td>艾特指定在线玩家</td>
+                        <td><span class="badge ok">无需</span></td>
+                        <td>受冷却</td>
+                    </tr>
+                    <tr>
+                        <td><code>/at all</code></td>
+                        <td>艾特所有在线玩家（不含自己）</td>
+                        <td><code>tuolingat.atall</code></td>
+                        <td>受冷却</td>
+                    </tr>
+                    <tr>
+                        <td><code>/at random</code></td>
+                        <td>随机艾特一位在线玩家（不含自己）</td>
+                        <td><code>tuolingat.atrandom</code></td>
+                        <td>受冷却</td>
+                    </tr>
+                    <tr>
+                        <td><code>/at reload</code></td>
+                        <td>重载配置并同步聊天监听开关</td>
+                        <td><code>tuolingat.reload</code></td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td><code>/at</code> · <code>/at help</code></td>
+                        <td>显示帮助</td>
+                        <td><span class="badge ok">无需</span></td>
+                        <td>—</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>补充说明</h3>
+            <ul>
+                <li>命令别名 <code>/hanat</code> 与 <code>/at</code> 完全等价。</li>
+                <li><strong>控制台可用</strong>：控制台执行 <code>/at Steve</code> 时，对方看到的 <code>%sender%</code> 是 <code>Console</code>，且不受冷却限制。</li>
+                <li>权限判定走 <code>hasPermission</code>，控制台天然拥有全部权限；用 LuckPerms 之类的权限插件给玩家组授权即可。</li>
+                <li><code>/at random</code> 与 <code>/at all</code> 在没有其他人在线时，会提示"服务器无其他人在线"。</li>
+            </ul>
+
+            <h3>Tab 补全</h3>
+            <p>输入 <code>/at </code> 后按 Tab 会补全<strong>当前在线的玩家名</strong>（按名字匹配，不区分大小写）。</p>
+
+            <!-- ==================== 聊天框 ==================== -->
+            <h2 id="chat">聊天框艾特</h2>
+            <p>
+                开启 <code>Setting.EnableChatAt</code>（默认开启）后，玩家在聊天框里直接打艾特就能触发，
+                不需要记命令。
+            </p>
+
+            <h3>输入行为对照</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>输入</th><th>显示颜色</th><th>行为</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>@Steve</code></td>
+                        <td><span class="badge ok">绿色</span></td>
+                        <td>艾特 Steve，对方收到聊天提示 + 标题 + 音效</td>
+                    </tr>
+                    <tr>
+                        <td><code>@ Steve</code>（带空格）</td>
+                        <td><span class="badge ok">绿色</span></td>
+                        <td>同上，且消息里的空格会被去掉，显示为 <code>@Steve</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>@all</code> · <code>@全体玩家</code></td>
+                        <td><span class="badge gold">黄色</span></td>
+                        <td>艾特除自己外的所有在线玩家，需要 <code>tuolingat.atall</code>；发起者不会收到逐条的"你艾特了谁"提示</td>
+                    </tr>
+                    <tr>
+                        <td><code>@random</code> · <code>@随机玩家</code></td>
+                        <td><span class="badge gold">黄色</span></td>
+                        <td>随机艾特一位在线玩家；消息里会<strong>直接显示抽到的玩家名</strong>，需要 <code>tuolingat.atrandom</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>@自己</code></td>
+                        <td><span class="badge">不变色</span></td>
+                        <td>提示"你不能艾特自己"</td>
+                    </tr>
+                    <tr>
+                        <td><code>@不存在的人</code></td>
+                        <td><span class="badge">不变色</span></td>
+                        <td>提示"玩家不存在或者不在线"（一条消息只提示一次）</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>冷却规则</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>入口</th><th>是否受冷却</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>指令 <code>/at &lt;玩家名&gt;</code></td><td>受冷却</td></tr>
+                    <tr><td>指令 <code>/at all</code> · <code>/at random</code></td><td>受冷却</td></tr>
+                    <tr><td>聊天框 <code>@玩家名</code></td><td>受冷却</td></tr>
+                    <tr><td>聊天框 <code>@all</code> · <code>@全体玩家</code> · <code>@random</code> · <code>@随机玩家</code></td><td><strong>不受、也不占用</strong>冷却</td></tr>
+                    <tr><td>OP（<code>OpNoCooldown: true</code>）</td><td>无条件放行</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note tip">
+                <div class="note-h">一条消息只扣一次冷却</div>
+                消息里写了多个 <code>@玩家名</code> 时，只在触发前检查一次冷却，不会因为艾特的人多而重复扣。
+                冷却中的提示只发给发起者，不会打扰被艾特的人。
+            </div>
+
+            <h3>其他细节</h3>
+            <ul>
+                <li><strong>大小写不敏感</strong>：<code>@steve</code> 可以命中在线玩家 <code>Steve</code>。</li>
+                <li><strong>重复去重</strong>：<code>@Steve @Steve</code> 只艾特一次；<code>@Steve @all</code> 时 Steve 也不会收到两遍。</li>
+                <li><strong>关键字优先</strong>：若服务器真有玩家叫 <code>all</code> / <code>random</code>，这两个名字会优先按关键字处理；<code>全体玩家</code> / <code>随机玩家</code> 是中文别名，只整体匹配，不会吃掉跟在后面的中文。</li>
+                <li><strong>权限与指令一致</strong>：聊天框的 <code>@all</code> / <code>@random</code> 同样校验权限，无法绕过指令限制。</li>
+                <li><strong>热开关</strong>：把 <code>EnableChatAt</code> 改成 <code>false</code> 后执行 <code>/at reload</code>，插件会直接注销聊天监听（不注册即不产生开销）。</li>
+            </ul>
+
+            <!-- ==================== 格式 ==================== -->
+            <h2 id="format">音效与标题格式</h2>
+
+            <h3>音效 · Sound</h3>
+            <p>格式：<code>音效名,音量,音调</code>，后两项省略时默认为 <code>1.0</code>。</p>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>参数</th><th>含义</th><th>取值范围</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>音效名</td><td>播放哪个音效</td><td>见下方两种格式</td></tr>
+                    <tr><td>音量</td><td>越大越响，也影响可听距离</td><td><code>0.0</code> ~ <code>1.0</code> 常用，可更大</td></tr>
+                    <tr><td>音调</td><td>越高越尖</td><td><code>0.5</code> ~ <code>2.0</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>音效名的两种写法插件都会自动转换，按你的服务端版本适配：</p>
+            <div class="code-block">
+                <span class="code-lang">yaml</span>
+                <pre><code># 写法一：枚举名（原版 1.9+ 风格）
+Sound: "ENTITY_CAT_AMBIENT,1,1"
+
+# 写法二：资源路径（原版 1.13+ 风格）
+Sound: "entity.cat.ambient,1,1"
+
+# 带命名空间也可以
+Sound: "minecraft:entity.cat.ambient,1,1"</code></pre>
+            </div>
+
+            <h3>标题 · Title</h3>
+            <p>格式：<code>标题,副标题,淡入,停留,淡出</code>，三个时长单位是 <strong>tick</strong>（20 tick = 1 秒），省略时默认 <code>10/40/10</code>。</p>
+            <div class="code-block">
+                <span class="code-lang">yaml</span>
+                <pre><code># 完整写法（1.11+ 生效）
+Title: "&6%sender%,&b好像在艾特你,10,30,10"
+
+# 只想要标题和副标题（任何版本都可用）
+Title: "&6%sender%,&b好像在艾特你"</code></pre>
+            </div>
+            <div class="note warn">
+                <div class="note-h">1.8 ~ 1.10 的标题</div>
+                这些版本的服务端只有两参 <code>sendTitle</code>，后三个时长参数会被忽略、使用服务端默认值。
+                想让配置在所有版本行为一致，就只写前两段。
+            </div>
+
+            <!-- ==================== 跨版本 ==================== -->
+            <h2 id="versions">跨版本说明</h2>
+            <p>
+                插件对标题和音效分别做了适配，运行时探测当前服务端支持哪个 API，再选用对应实现。
+                整个过程<strong>不使用 NMS 反射</strong>（不碰服务端内部类），所以对各类分支服、混合端更友好。
+            </p>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>服务端版本</th><th>标题</th><th>音效名</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1.8 ~ 1.10</td>
+                        <td>两参实现，忽略淡入/停留/淡出</td>
+                        <td><code>Sound</code> 枚举（1.8 的枚举名较短，如 <code>CAT_AMBIENT</code>）</td>
+                    </tr>
+                    <tr>
+                        <td>1.11 ~ 1.12</td>
+                        <td>五参实现，支持自定义动画时长</td>
+                        <td>枚举名格式</td>
+                    </tr>
+                    <tr>
+                        <td>1.13 ~ 26.x</td>
+                        <td>五参实现</td>
+                        <td>资源路径格式</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note">
+                <div class="note-h">音效解析失败不会影响其他功能</div>
+                如果音效名在当前版本确实不存在，插件只会在控制台打一条警告，
+                聊天提示与标题照常发送，命令也不会因此报错。
+            </div>
+
+            <!-- ==================== PAPI ==================== -->
+            <h2 id="papi">PlaceholderAPI</h2>
+            <p>
+                PlaceholderAPI 是<strong>可选软依赖</strong>：装了它会自动注册本插件的占位符，没装也完全不影响运行。
+            </p>
+
+            <h3>本插件提供的占位符</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                    <tr><th>占位符</th><th>含义</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td><code>%tuolingat_online%</code></td><td>当前在线玩家数</td></tr>
+                    <tr><td><code>%tuolingat_player%</code></td><td>当前玩家名</td></tr>
+                    <tr><td><code>%tuolingat_cooldown%</code></td><td>该玩家剩余的艾特冷却秒数（<code>0</code> 表示可用）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>可以放在计分板、聊天格式或其他支持 PAPI 的地方，例如：</p>
+            <div class="code-block">
+                <span class="code-lang">text</span>
+                <pre><code>冷却: %tuolingat_cooldown%s
+在线: %tuolingat_online%</code></pre>
+            </div>
+
+            <div class="note warn">
+                <div class="note-h">两个已知限制</div>
+                <ul>
+                    <li>插件<strong>文案</strong>里只解析自带的 <code>%target%</code> / <code>%sender%</code> / <code>%cooldown%</code>，
+                        其他插件提供的 PAPI 占位符不会在插件文案中被解析。</li>
+                    <li>执行 <code>/papi reload</code> 后，本插件的占位符可能需要重载插件才会重新注册。</li>
+                </ul>
+            </div>
+
+            <!-- ==================== FAQ ==================== -->
+            <h2 id="faq">常见问题</h2>
+
+            <h3>玩家打 <code>@名字</code> 没反应，也没提示</h3>
+            <ul>
+                <li>确认 <code>Setting.EnableChatAt</code> 是 <code>true</code>，改完要 <code>/at reload</code> 或重启。</li>
+                <li>确认对方<strong>在线</strong>：名字不存在或已离线时会提示"玩家不存在或者不在线"，不会有其他动作。</li>
+                <li>如果连"不存在"的提示都没有，说明聊天监听没生效（回到第一条）。</li>
+            </ul>
+
+            <h3>冷却中对方还是收到了？</h3>
+            <p>冷却只在触发前拦一次。请确认走的是哪条入口：<code>@all</code>/<code>@全体玩家</code>/<code>@random</code>/<code>@随机玩家</code> 按设计不受冷却限制。</p>
+
+            <h3>OP 一直没冷却，想限制怎么办</h3>
+            <p>把 <code>Setting.OpNoCooldown</code> 改成 <code>false</code>，OP 就和其他玩家一样受 <code>CommandCooldown</code> 限制。</p>
+
+            <h3>1.8 服务端没有声音，控制台有警告</h3>
+            <p>
+                1.8 的音效枚举名与其他版本不同（例如 1.9+ 的 <code>ENTITY_CAT_AMBIENT</code> 在 1.8 叫 <code>CAT_AMBIENT</code>）。
+                插件会自动转换大小写与分隔符，但无法把"改过名"的音效自动映射成 1.8 的老名字。
+                请在配置里填写<strong>1.8 实际存在的枚举名</strong>。
+            </p>
+
+            <h3>标题的动画时长没生效</h3>
+            <p>1.8 ~ 1.10 的服务端不支持设置动画时长，属于服务端限制。1.11+ 五参写法才会生效。</p>
+
+            <h3>改了配置没变化</h3>
+            <p>执行 <code>/at reload</code>（需要 <code>tuolingat.reload</code> 权限）。如果是替换了 jar，请整服重启，不要依赖热重载。</p>
+
+            <h3>为什么命令有 <code>/at</code> 和 <code>/hanat</code> 两个</h3>
+            <p>两个是同一个功能的别名，方便与其它插件的命令名错开。任选其一即可。</p>
+
+            <div class="pager">
+                <a href="index.html">
+                    <span class="pager-h">上一篇</span>
+                    <span class="pager-t">← 首页</span>
+                </a>
+                <a class="next" href="dev.html">
+                    <span class="pager-h">下一篇</span>
+                    <span class="pager-t">开发者文档 →</span>
+                </a>
+            </div>
+
+            <div class="doc-footer">
+                <span>TuoLingAt · 用户文档</span>
+                <span>适用于 1.0</span>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script src="js/docs.js"></script>
+</body>
+</html>
