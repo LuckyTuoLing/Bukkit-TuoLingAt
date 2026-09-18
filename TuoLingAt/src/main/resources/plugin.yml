@@ -1,7 +1,0 @@
-name: TuoLingAt
-version: '${project.version}'
-main: com.tuoling.tuolingat.TuoLingAt
-softdepend: [PlaceholderAPI]
-commands:
-  at:
-  hanat:

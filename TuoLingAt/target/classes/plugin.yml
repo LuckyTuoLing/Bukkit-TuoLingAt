@@ -1,7 +1,0 @@
-name: TuoLingAt
-version: '1.0'
-main: com.tuoling.tuolingat.TuoLingAt
-softdepend: [PlaceholderAPI]
-commands:
-  at:
-  hanat:
